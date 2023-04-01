@@ -1,20 +1,13 @@
+
 import sys
 
-grand_total = 0
-grand_number = 0
+total = 0.0
+count = 0
 
 for line in sys.stdin:
-    try:
-        line = line.strip()
-        if line:
-            total, num = line.split('\t')
-            grand_total += total
-            grand_number += num
-        else:
-            break
+    num, cnt = line.strip().split("\t")
+    total += float(num)
+    count += int(cnt)
 
-    except ValueError:
-        continue
-
-average = float(grand_total) / grand_number
-print '%s\t%f' % ('Grand average', average)
+avg = total / count
+print("Average: {0:.2f}".format(avg))
